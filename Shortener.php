@@ -10,8 +10,6 @@ class Shortener
 		$database = 'wm08927_krv'; // имя базы данных
 		$user = 'wm08927_krv'; // имя пользователя
 		$password = 'ZQrz2XiX'; // пароль
-		/*$link = mysqli_connect($host, $user, $password, $database) 
-    or die("Ошибка " . mysqli_error($link));*/
 		$this->db = new mysqli($host, $user, $password, $database);
 	}
 
@@ -26,9 +24,6 @@ class Shortener
 		}
 
 		$url = $this->db->escape_string($url);
-		/*$sql_select = "SELECT code FROM links WHERE url = '{$url}'";
-		$result = mysql_query($sql_select);
-		$row = mysql_fetch_array($result);*/
 			$exists = $this->db->query("SELECT code FROM links WHERE url = '{$url}'");
 	
 		if ($exists->num_rows) {
